@@ -1,4 +1,8 @@
 const isNumeric = n => !isNaN(parseFloat(n)) && isFinite(n);
+
+let answerDiv = document.createElement('div');
+answerDiv.className = 'answerContainer';
+
 const enterNumber = () => {
   let currentNumber = true,
     resultArr = [],
@@ -10,7 +14,14 @@ const enterNumber = () => {
     else if (!isNumeric(currentNumber)) alert(varning);
     else resultArr.push(+currentNumber);
   }
-  console.log(resultArr.sort((a, b) => a - b).join());
+  return resultArr;
 };
 
-console.log(enterNumber());
+const showResult = () => {
+  const answer = enterNumber();
+  answerDiv.innerHTML = answer.sort((a, b) => a - b).join();
+  answer.length ? document.body.append(answerDiv) : answerDiv.remove();
+};
+
+const button = document.querySelector('.task-button');
+button.addEventListener('click', showResult);
