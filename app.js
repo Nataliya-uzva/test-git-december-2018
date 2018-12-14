@@ -5,9 +5,9 @@ answerDiv.className = 'answerContainer taskContainer';
 
 const enterNumber = () => {
   let currentNumber = true,
-    resultArr = [],
-    message = 'enter the number or click cancel',
-    varning = 'THIS IS NOT A NUMBER';
+      resultArr = [],
+      message = 'enter the number or click cancel',
+      varning = 'THIS IS NOT A NUMBER';
 
   while (currentNumber) {
     currentNumber = prompt(message);
