@@ -1,7 +1,7 @@
 const isNumeric = n => !isNaN(parseFloat(n)) && isFinite(n);
 
 let answerDiv = document.createElement('div');
-answerDiv.className = 'answerContainer';
+answerDiv.className = 'answerContainer taskContainer';
 
 const enterNumber = () => {
   let currentNumber = true,
