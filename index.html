@@ -6,17 +6,43 @@
     <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
+  <!-- Итак задача следующая: последовательно вводите через prompt 3 числа
+  (отмену ввода или пустую строку желательно обрабатывать - это по желанию)
+  и потом должны вывести сообщение (можете использовать  alert или console.log)
+  в котором укажите числа в порядке возрастания. Если есть одинаковые числа,
+  то это тоже должно быть в сообщении -->
+  <script>
 
-  <h1>Team list</h1>
+      "use strict"
 
-    <ul>
-      <li>
-          <strong>Roze</strong> Stepan
-      </li>
-      <li>Andrew Olepir 0680149106</li>
-      <li>Olha Kriukova +380936256768</li>
-    </ul>
+      var num1 = prompt('Введите первое число', '');
+      var num2 = prompt('Введите второе число', '');
+      var num3 = prompt('Введите третье число', '');
 
-<script src="app.js"></script>
+      if (num1 === "" || num2 === "" || num3 === ""){
+          alert("Одно или несколько значений были не введены");
+      } else if (num1 === null || num2 === null || num3 === null) {
+          alert ("Была нажата кнопка cansel");
+      } else {
+          var arr = [num1, num2, num3];
+      }
+
+      function compareNum(a, b) {
+          if (a > b) {
+              return 1;
+          }
+          if (a === b) {
+              alert("Некоторые числа равны");
+          }
+          if (a < b) {
+              return -1;
+          }
+      }
+
+      arr.sort(compareNum);
+
+      alert(arr);
+
+  </script>
   </body>
 </html>
