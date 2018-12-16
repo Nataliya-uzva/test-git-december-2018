@@ -105,7 +105,7 @@ console.log('TriangleBottom :', getPerimetrTriangleBottom(10));
 
 const run = (input, result, leftSideArr = []) => {
   if (!input.length) {
-  //end recursion
+    //end recursion
     return result;
   }
   //add top side
