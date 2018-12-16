@@ -3,7 +3,6 @@
 const getTemplateArr = (size, arr = [], counter = 0) => {
   for (var i = 0; i < size; i++) {
     arr[i] = [];
-
     for (var j = 0; j < size; j++, counter++) {
       arr[i][j] = counter;
     }
@@ -18,7 +17,9 @@ console.table(getTemplateArr(10));
 const checkBomba = arr => {
   return arr.map(n => {
     let res = (n % 3 ? '' : 'Super') + (n % 5 ? '' : 'Buper') || n;
-    return res === 'SuperBuper' ? (res = 'BOOM') : res;
+		return res === 'SuperBuper' 
+		? (res = 'BOOM') 
+		: res;
   });
 };
 
@@ -114,10 +115,10 @@ const run = (input, result, leftSideArr = []) => {
   input.forEach(last => result.push(last.pop()));
   //create left side
   input.forEach(first => leftSideArr.unshift(first.shift()));
-  //add bottom side
-  result = input.length ? result.concat(input.pop().reverse()) : result;
-  //add leftSide
-  result = result.concat(leftSideArr);
+  //add bottom side & left side
+  result = input.length
+    ? result.concat(input.pop().reverse(), leftSideArr)
+    : result;
   //all over again
   return run(input, result);
 };
