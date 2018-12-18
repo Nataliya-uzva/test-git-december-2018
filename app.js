@@ -102,7 +102,7 @@ console.log('TriangleBottom :', getPerimetrTriangleBottom(10));
 
 //<=======================helix=========================>
 
-const run = (input, result, leftSideArr = []) => {
+const helix = (input, result, leftSideArr = []) => {
   if (!input.length) {
     //end recursion
     return result;
@@ -118,6 +118,6 @@ const run = (input, result, leftSideArr = []) => {
     ? result.concat(input.pop().reverse(), leftSideArr)
     : result;
   //all over again
-  return run(input, result);
+  return helix(input, result);
 };
-console.log('helix :', run(getTemplateArr(10), []));
+console.log('helix :', helix(getTemplateArr(10), []));
