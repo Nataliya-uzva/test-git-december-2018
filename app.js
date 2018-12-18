@@ -17,9 +17,7 @@ console.table(getTemplateArr(10));
 const checkBomba = arr => {
   return arr.map(n => {
     let res = (n % 3 ? '' : 'Super') + (n % 5 ? '' : 'Buper') || n;
-		return res === 'SuperBuper' 
-		? (res = 'BOOM') 
-		: res;
+    return res === 'SuperBuper' ? (res = 'BOOM') : res;
   });
 };
 
@@ -30,7 +28,7 @@ console.table(getBombaArr(10));
 
 //<=====================square left===========================>
 
-getPerimetrSquare = (size, rightSide = []) => {
+const getPerimetrSquareLeft = (size, rightSide = []) => {
   return getTemplateArr(size).reduce((pre, cur, i, arr) => {
     if (i === 0) {
       return pre.concat(cur.reverse());
@@ -44,15 +42,15 @@ getPerimetrSquare = (size, rightSide = []) => {
   }, []);
 };
 
-console.log('Square :', getPerimetrSquare(10));
+console.log('Square :', getPerimetrSquareLeft(10));
 
 //<=======================square left 2=========================>
 
-getPerimetrSquare2 = size => {
+const getPerimetrSquare2 = size => {
   let arr = getTemplateArr(size),
     resultArr = arr[0].reverse(),
     rightSide = [],
-    middle = getTemplateArr(size).slice(1, -1);
+    middle = arr.slice(1, -1);
   middle.forEach(n => {
     resultArr.push(n[0]);
     rightSide.unshift(n.pop());
@@ -64,7 +62,7 @@ console.log('Square2 :', getPerimetrSquare2(10));
 
 //<=====================triangle right ===========================>
 
-getPerimetrTriangle = (size, diagonal = []) => {
+const getPerimetrTriangle = (size, diagonal = []) => {
   return getTemplateArr(size).reduce((pre, cur, i, arr) => {
     if (i === 0) {
       return pre.concat(cur);
@@ -82,7 +80,7 @@ console.log('Triangle :', getPerimetrTriangle(10));
 
 //<=======================triangle bottom=========================>
 
-getPerimetrTriangleBottom = (size, diagonal = []) => {
+const getPerimetrTriangleBottom = (size, diagonal = []) => {
   return getTemplateArr(size).reduceRight((pre, cur, i, arr) => {
     if (i === 0) {
       pre.push(cur[0]);
