@@ -1,69 +1,79 @@
-const getVagonQuantity = (max = 20, min = 10) =>
-  Math.round(min - 0.5 + Math.random() * (max - min + 1));
+//<====================class work task============================>
+let str = 'aabbbaccaa';
 
-class Train {
-  constructor(sizeMax) {
-		this.vagons = [],
-		this.vagonCounter = 0;
-    // генерим выгоны
-    for (var i = 0; i < getVagonQuantity(sizeMax); i++) {
-      this.vagons.push({
-        lightIsOn: !!Math.round(Math.random()),
-      });
+const getIncomingValues = (str, result = '') => {
+  let obj = [...str].reduce((pre, cur) => {
+    pre[cur] = ++pre[cur] || 1;
+    return pre;
+  }, {});
+
+  for (let key in obj) {
+    result += obj[key] + key;
+  }
+  return result;
+};
+console.log('getIncomingValues :', getIncomingValues(str));
+
+//<================================================>
+// 1. Напишите функцию transfor(str), которая при вы  'aabbbaccaa' => '2a3b1a2c2a'
+
+const transfor = (str, result = '') => {
+  let hulfResult = [...str].reduce((pre, cur) => {
+    if (pre.includes(cur) || !pre.length) {
+      pre.push(cur);
+    }
+    if (!pre.includes(cur)) {
+      result += `${pre.length}${pre[0]}`;
+      pre = [...cur];
+    }
+    return pre;
+  }, []);
+  result += `${hulfResult.length}${hulfResult[0]}`;
+  return result;
+};
+
+console.log('transfor :', transfor('aabbbaccaa')); ///  '2a3b1a2c2a'
+console.log('transfor :', transfor('aaaaa')); ///  '5a'
+console.log('transfor :', transfor('abcd')); ///  '1a1b1c1d'
+
+//<================================================>
+
+const transfor2 = (str, hulfResult = [], result = '') => {
+  for (var i = 0; i < str.length; i++) {
+    if (hulfResult.includes(str[i]) || hulfResult.length === 0) {
+      hulfResult.push(str[i]);
+    }
+    if (!hulfResult.includes(str[i])) {
+      result += `${hulfResult.length}${hulfResult[0]}`;
+      hulfResult = [...str[i]];
     }
   }
-  get forwardStep() {
-    // замыкаем вагоны
-    return this.vagons[++this.vagonCounter % this.vagons.length];
-  }
-  backwordsStep() {
-    return this.vagons[--this.vagonCounter % this.vagons.length];
-  }
-}
+  result += `${hulfResult.length}${hulfResult[0]}`;
+  return result;
+};
 
-function calculateLengthTrain() {
-  // создаём новый поезд
-  const locomotive = new Train(20);
-  console.log('locomotive check', locomotive.vagons.length);
-  let backword = false;
-  let saveCounter = 0;
-  // просыпаемся и включаем свет в первом вагоне
-  const awokeLigth = locomotive.vagons[locomotive.vagonCounter];
-  awokeLigth.lightIsOn = true;
-  // и делаем шаг в перёд
-  let forward = true;
-  locomotive.forwardStep;
-  // до тех пор пока свет горит в первом вогоне
-  while (awokeLigth.lightIsOn) {
-    // идём вперёд
-    while (forward) {
-      let currentStep = locomotive.forwardStep;
-      // если лампочка горит
-      if (currentStep.lightIsOn === true) {
-        //тушим лампочку
-        currentStep.lightIsOn = false;
-        // уходим назад
-        forward = false;
-        backword = true;
-        // сохраняем текущее положение
-        saveCounter = locomotive.vagonCounter;
-      }
-    }
-    // идём назад
-    while (backword) {
-      locomotive.backwordsStep();
-      // доходим до первой лампочки и проверяем горит или нет
-      if (locomotive.vagonCounter === 0) {
-        backword = false;
-        //если лампочка горит идём обратно
-        if (locomotive.vagons[locomotive.vagonCounter].lightIsOn) {
-          forward = true;
-        }
-      }
-    }
+console.log('transfor2:', transfor2('aabbbaccaa')); ///  '2a3b1a2c2a'
+console.log('transfor2:', transfor2('aaaaa')); ///  '5a'
+console.log('transfor2:', transfor2('abcd')); ///  '1a1b1c1d'
+
+//<================================================>
+// 2. Напишите функцию, которая сравнивает объекты по значениям:
+
+const compare = (obj1, obj2) => {
+  obj1Arr = Object.values(obj1);
+  obj2Arr = Object.values(obj2);
+  if (obj1Arr.length !== obj1Arr.length) {
+    return false;
   }
+  return obj2Arr.every((n, i) => n === obj1Arr[i]);
+};
 
-  return saveCounter;
-}
+console.log("compare :", compare({ name: 'Vasya', age: 30 }, { name: 'Vasya', age: 30 })); // true
+console.log("compare :", compare({ name: 'Vasya' }, { name: 'Vasya', age: 30 })); // false
 
-console.log('locomotive length :', calculateLengthTrain());
+//<================================================>
+
+const compare2 = (obj1, obj2) => JSON.stringify(obj1) === JSON.stringify(obj2);
+
+console.log("compare2 :",compare2({ name: 'Vasya', age: 30 }, { name: 'Vasya', age: 30 })); // true
+console.log("compare2 :",compare2({ name: 'Vasya' }, { name: 'Vasya', age: 30 })); // false
