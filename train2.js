@@ -20,7 +20,7 @@ class Train {
   forwardStep(step) {
     return this.vagons[step % this.vagons.length];
   }
-  backwordsStep(step) {
+  backwardsStep(step) {
     return this.vagons[step % this.vagons.length];
   }
 }
@@ -57,7 +57,7 @@ function calculateLengthTrain() {
     }
     // идём назад
     while (backword) {
-      locomotive.backwordsStep(--stepCounter);
+      locomotive.backwardsStep(--stepCounter);
       // доходим до первого выгона
       if (!stepCounter) {
         // останавливаемся
