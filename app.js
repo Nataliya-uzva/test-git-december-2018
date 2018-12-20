@@ -1,8 +1,8 @@
 //<====================class work task============================>
-let str = 'aabbbaccaa';
+const str = 'aabbbaccaa';
 
 const getIncomingValues = (str, result = '') => {
-  let obj = [...str].reduce((pre, cur) => {
+  const obj = [...str].reduce((pre, cur) => {
     pre[cur] = ++pre[cur] || 1;
     return pre;
   }, {});
