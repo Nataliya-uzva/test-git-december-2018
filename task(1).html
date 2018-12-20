@@ -9,46 +9,37 @@
 <script>
 
     "use strict"
+    function compare(obj1, obj2) {
 
-    function randomInteger(min, max) {
-        var rand = min + Math.random() * (max + 1 - min);
-        rand = Math.floor(rand);
-        return rand;
+           var arr1 = [],
+               arr2 = [],
+               val1,
+               val2;
+
+           for (val1 in obj1) {
+               arr1.push(obj1[val1])
+           }
+
+           for (val2 in obj2) {
+               arr2.push(obj2[val2])
+           }
+
+           if (arr1.length != arr2.length) {
+                return false;
+            }
+
+           for (var i = 0; i < arr1.length; i++) {
+                var prop = arr2[i];
+
+                if (obj1[prop] !== obj2[prop]) {
+                    return false;
+                }
+           }
+
+        return true;
+
     }
 
-   var arr = [],
-       i,
-       j;
-
-    for (var i = 0;  i < 10; i++) {
-       arr[i] = new Array();
-       for (j = 0; j < 10; j++) {
-          arr[i][j] = randomInteger(0, 100);
-       }
-
-   }
-
-  console.table(arr);
-
-    var arr2 = [],
-        len = 10;
-
-    for (var i = 0; i < len; i++) {
-        arr2.push(arr[i][0]);
-    }
-
-    for (var i = 1; i < len; i++) {
-        arr2.push(arr[len - 1][i]);
-    }
-
-    for (var i = len - 2; i >= 0; i--) {
-        arr2.push(arr[i][len - 1]);
-    }
-
-    for (var i = len - 2; i > 0; i--) {
-        arr2.push(arr[0][i]);
-    }
-    console.table(arr2);
 
 
 
