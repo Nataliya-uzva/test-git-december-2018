@@ -65,10 +65,10 @@ const compare = (obj1, obj2) => {
   if (obj1Arr.length !== obj1Arr.length) {
     return false;
   }
-  return obj2Arr.every((n, i) => n === obj1Arr[i]);
+  return obj2Arr.every(n => obj1Arr.includes(n));
 };
 
-console.log("compare :", compare({ name: 'Vasya', age: 30 }, { name: 'Vasya', age: 30 })); // true
+console.log("compare :", compare({ age: 30,  name: 'Vasya' }, { name: 'Vasya', age: 30 })); // true
 console.log("compare :", compare({ name: 'Vasya' }, { name: 'Vasya', age: 30 })); // false
 
 //<================================================>
