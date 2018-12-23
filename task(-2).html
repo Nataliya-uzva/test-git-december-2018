@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        "use strict"
+        function randomInteger(min, max) {
+            var rand = min + Math.random() * (max + 1 - min);
+            rand = Math.floor(rand);
+            return rand;
+        }
+        var arr = [],
+            i,
+            j;
+        for (var i = 0;  i < 10; i++) {
+            arr[i] = new Array();
+            for (j = 0; j < 10; j++) {
+                arr[i][j] = randomInteger(0, 100);
+            }
+        }
+        console.table(arr);
+        var arr2 = [],
+            len = 10;
+        for (var i = 0; i < len; i++) {
+            arr2.push(arr[i][0]);
+        }
+        for (var i = 1; i < len; i++) {
+            arr2.push(arr[len - 1][i]);
+        }
+        for (var i = len - 2; i >= 0; i--) {
+            arr2.push(arr[i][len - 1]);
+        }
+        for (var i = len - 2; i > 0; i--) {
+            arr2.push(arr[0][i]);
+        }
+        console.log(arr2);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
