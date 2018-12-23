@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function spinWords (str) {
+        var arr = [];
+
+        arr = str.split(' ');
+
+        for (var i = 0; i < arr.length; i++) {
+
+            if (arr[i].length >= 5) {
+
+                var change = arr[i].split('');
+                change.reverse();
+                arr.splice(i, 1, change.join(''));
+            }
+        }
+        str = arr.join(' ');
+        return(str);
+    }
+    //spinWords( "Hey fellow warriors" ) => returns "Hey wollef sroirraw"
+    //spinWords( "This is a test") => returns "This is a test"
+    //spinWords( "This is another test" )=> returns "This is rehtona test"
+
+    function createPhoneNumber(numbers){
+        var arr = numbers;
+        arr.splice(0, 0, "(");
+        arr.splice(4, 0, ")");
+        arr.splice(5, 0, " ");
+        arr.splice(9, 0, "-");
+        var str = arr.join("");
+        return str;
+
+    }
+
+    createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]); //"(123) 456-7890");
+
+    /* In a small town the population is p0 = 1000 at the beginning of a year.
+     The population regularly increases by 2 percent per year and moreover 50 
+     new inhabitants per year come to live in the town. How many years does
+     the town need to see its population greater or equal to p = 1200 inhabitants?
+      */
+
+      function nbYear(p0, percent, aug, p) {
+        var years = 0;
+        percent = percent * Math.pow(10, -2);
+        do {
+            p0 =  p0 + p0 * percent  + aug;
+            years++;
+        }
+        while (p0 < p);
+
+        return years;
+    }
+
+
+</script>
+</body>
+</html>
