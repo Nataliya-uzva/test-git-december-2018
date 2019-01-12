@@ -80,35 +80,51 @@
                 s = 0,
                 m = 0,
                 f = 2;
-            function p(t) {
-                let n = document.querySelector('table');
-                e.removeChild(n),
-                    t.currentTarget.className.includes('Right') && ++d,
-                    t.currentTarget.className.includes('Left') && --d,
+            function y() {
+                let t = document.querySelector('table');
+                e.removeChild(t);
+            }
+            function g(e) {
+                y(),
+                    e.currentTarget.className.includes('Right') && ++d,
+                    e.currentTarget.className.includes('Left') && --d,
                     13 === d && (++u, (d = 1)),
                     0 === d && (--u, (d = 12)),
-                    v(u, d);
+                    S(u, d);
             }
-            function y({ target: e }) {
-                let t = e.innerHTML;
-                if (+t) {
-                    let n = +new Date(u, d, t);
-                    void 0 === e.dataset.mSecCurrentDay && f > 0
-                        ? ((e.dataset.mSecCurrentDay = n), f++)
-                        : e.dataset.mSecCurrentDay &&
-                          (delete e.dataset.mSecCurrentDay, f--),
-                        s && +s === n
+            function p({ target: e }) {
+                let t = +e.innerHTML;
+                if ((console.log(e), t)) {
+                    let n = +new Date(u, d - 1, t);
+                    e.dataset.mSecCurrentDay
+                        ? e.dataset.mSecCurrentDay &&
+                          (delete e.dataset.mSecCurrentDay, ++f > 2 && (f = 2))
+                        : ((e.dataset.mSecCurrentDay = n), --f < 0 && (f = 0)),
+                        s && s === n
                             ? ((s = 0), e.classList.remove('in-day'))
-                            : m && +m === n
+                            : m && m === n
                             ? ((m = 0), e.classList.remove('out-day'))
-                            : 0 === s
-                            ? ((s = e.dataset.mSecCurrentDay),
-                              e.classList.add('in-day'))
-                            : s &&
-                              0 === m &&
-                              ((m = e.dataset.mSecCurrentDay),
-                              e.classList.add('out-day'));
+                            : s || m || !e.dataset.mSecCurrentDay
+                            ? !s && m && e.dataset.mSecCurrentDay < m
+                                ? ((s = +e.dataset.mSecCurrentDay),
+                                  e.classList.add('in-day'))
+                                : s &&
+                                  !m &&
+                                  s < n &&
+                                  e.dataset.mSecCurrentDay &&
+                                  ((m = +e.dataset.mSecCurrentDay),
+                                  e.classList.add('out-day'))
+                            : ((s = +e.dataset.mSecCurrentDay),
+                              e.classList.add('in-day'));
                 }
+                y(),
+                    S(u, d),
+                    console.log(
+                        'rangeIn :',
+                        new Date(+s).toLocaleString('ru', i),
+                        'rangeOut :',
+                        new Date(+m).toLocaleString('ru', i)
+                    );
             }
             function h(e, t, n) {
                 const a = new Date().getMonth() + 1,
@@ -116,13 +132,10 @@
                     o = new Date().getFullYear();
                 return e === r && a === n && o === t;
             }
-            function g(e, t, n, a) {
-                const r = new Date(a).getDate(),
-                    o = new Date(a).getMonth(),
-                    c = new Date(a).getFullYear();
-                return r === e && o === n && t === c;
+            function v() {
+                return s > 0 && m > 0;
             }
-            function v(t, n) {
+            function S(t, n) {
                 const r = new Date(t, n - 1, 1),
                     c = r.getDay(),
                     l = new Date(t, n, 0).getDate(),
@@ -147,18 +160,23 @@
                     i.appendChild(document.createElement('tr'));
                 for (f = 1; f < u.length; f++) {
                     const e = document.createElement('td');
+                    (e.textContent = u[f]), i.lastChild.appendChild(e);
+                    let a = new Date(t, n - 1, u[f]);
                     if (
-                        ((e.textContent = u[f]),
-                        i.lastChild.appendChild(e),
-                        h(u[f], t, n) && (e.className = 'markDay'),
-                        g(u[f], t, n, +s) && e.classList.add('in-day'),
-                        g(u[f], t, n, +m) && e.classList.add('out-day'),
+                        (h(u[f], t, n) && (e.className = 'markDay'),
+                        u[f] && +a === s && e.classList.add('in-day'),
+                        u[f] && +a === m && e.classList.add('out-day'),
+                        u[f] &&
+                            v() &&
+                            +a > s &&
+                            +a < m &&
+                            e.classList.add('incoming-day'),
                         f === u.length - 1)
                     )
                         break;
                     f % 7 == 0 && i.appendChild(document.createElement('tr'));
                 }
-                i.addEventListener('click', y);
+                i.addEventListener('click', p);
             }
             return (
                 (e.className = 'calendar'),
@@ -182,9 +200,9 @@
                 (c.innerHTML = '<i class="fas fa-times"></i>'),
                 (t.innerHTML = '<i class="fas fa-caret-left"></i>'),
                 (r.innerHTML = '<i class="fas fa-caret-right"></i>'),
-                v(u, d),
-                t.addEventListener('click', p),
-                r.addEventListener('click', p),
+                S(u, d),
+                t.addEventListener('click', g),
+                r.addEventListener('click', g),
                 {
                     confirmChoiseButton: l,
                     closedCalendarButton: c,
@@ -194,7 +212,7 @@
                         rangeIn: new Date(+s).toLocaleString('ru', i),
                         rangeOut: new Date(+m).toLocaleString('ru', i),
                     }),
-                    checkNotSomeRangeDay: () => s > 0 && m > 0,
+                    checkNotSomeRangeDay: v,
                 }
             );
         })();
@@ -229,88 +247,79 @@
             function(e) {
                 var t = n(0),
                     a = n(1);
-                console.log(t.a.currentDay),
-                    location.href.includes('index') &&
-                        (function() {
-                            e.initMap = a.a;
-                            const n = document.querySelector(
-                                    '.travel__search__button'
-                                ),
-                                r = document.querySelector(
-                                    '.adult-counter-minus'
-                                ),
-                                o = document.querySelector(
-                                    '.adult-counter-plus'
-                                ),
-                                c = document.querySelector(
-                                    '.children-counter-plus'
-                                ),
-                                l = document.querySelector(
-                                    '.children-counter-minus'
-                                ),
-                                i = document.querySelectorAll('.calendar-date'),
-                                u = document.querySelector(
-                                    '.main__travel__search'
-                                ),
-                                d = y(),
-                                s = y(),
-                                m = document.createElement('div'),
-                                f = document.querySelector('.date-in__input'),
-                                p = document.querySelector('.date-out__input');
-                            function y() {
-                                let e = 0;
-                                return t => {
-                                    let n = t.currentTarget.getAttribute(
-                                        'class'
-                                    );
-                                    n.includes('plus') ? e++ : e--;
-                                    let a = n.includes('adult')
-                                        ? document.querySelector(
-                                              '.adult-quantity__input'
-                                          )
-                                        : document.querySelector(
-                                              '.children-quantity__input'
-                                          );
-                                    (e = e >= 0 ? e : 0),
-                                        a.setAttribute('value', e);
-                                };
-                            }
-                            function h() {
-                                t.a.body.classList.add('calendar-visible'),
-                                    (m.className = 'calendar-shadow-mask'),
-                                    u.insertBefore(m, t.a.body);
-                            }
-                            function g() {
-                                t.a.body.classList.remove('calendar-visible'),
-                                    m.classList.remove('calendar-shadow-mask');
-                            }
-                            (f.placeholder = t.a.currentDay),
-                                (p.placeholder = t.a.currentDay),
-                                u.appendChild(t.a.body),
-                                n.addEventListener('click', function() {
-                                    document
-                                        .querySelector('.travel__search-hotel')
-                                        .classList.toggle('visible');
-                                }),
-                                r.addEventListener('click', d),
-                                o.addEventListener('click', d),
-                                c.addEventListener('click', s),
-                                l.addEventListener('click', s),
-                                i.forEach(e => e.addEventListener('click', h)),
-                                t.a.closedCalendarButton.addEventListener(
-                                    'click',
-                                    g
-                                ),
-                                t.a.confirmChoiseButton.addEventListener(
-                                    'click',
-                                    function() {
-                                        t.a.checkNotSomeRangeDay() &&
-                                            ((f.value = t.a.range().rangeIn),
-                                            (p.value = t.a.range().rangeOut),
-                                            g());
-                                    }
-                                );
-                        })(),
+                location.href.includes('index') &&
+                    (function() {
+                        e.initMap = a.a;
+                        const n = document.querySelector(
+                                '.travel__search__button'
+                            ),
+                            r = document.querySelector('.adult-counter-minus'),
+                            o = document.querySelector('.adult-counter-plus'),
+                            c = document.querySelector(
+                                '.children-counter-plus'
+                            ),
+                            l = document.querySelector(
+                                '.children-counter-minus'
+                            ),
+                            i = document.querySelectorAll('.calendar-date'),
+                            u = document.querySelector('.main__travel__search'),
+                            d = g(),
+                            s = g(),
+                            m = document.createElement('div'),
+                            f = document.querySelector('.date-in__input'),
+                            y = document.querySelector('.date-out__input');
+                        function g() {
+                            let e = 0;
+                            return t => {
+                                let n = t.currentTarget.getAttribute('class');
+                                n.includes('plus') ? e++ : e--;
+                                let a = n.includes('adult')
+                                    ? document.querySelector(
+                                          '.adult-quantity__input'
+                                      )
+                                    : document.querySelector(
+                                          '.children-quantity__input'
+                                      );
+                                (e = e >= 0 ? e : 0),
+                                    a.setAttribute('value', e);
+                            };
+                        }
+                        function p() {
+                            t.a.body.classList.add('calendar-visible'),
+                                (m.className = 'calendar-shadow-mask'),
+                                u.insertBefore(m, t.a.body);
+                        }
+                        function h() {
+                            t.a.body.classList.remove('calendar-visible'),
+                                m.classList.remove('calendar-shadow-mask');
+                        }
+                        (f.placeholder = t.a.currentDay),
+                            (y.placeholder = t.a.currentDay),
+                            u.appendChild(t.a.body),
+                            n.addEventListener('click', function() {
+                                document
+                                    .querySelector('.travel__search-hotel')
+                                    .classList.toggle('visible');
+                            }),
+                            r.addEventListener('click', d),
+                            o.addEventListener('click', d),
+                            c.addEventListener('click', s),
+                            l.addEventListener('click', s),
+                            i.forEach(e => e.addEventListener('click', p)),
+                            t.a.closedCalendarButton.addEventListener(
+                                'click',
+                                h
+                            ),
+                            t.a.confirmChoiseButton.addEventListener(
+                                'click',
+                                function() {
+                                    t.a.checkNotSomeRangeDay() &&
+                                        ((f.value = t.a.range().rangeIn),
+                                        (y.value = t.a.range().rangeOut),
+                                        h());
+                                }
+                            );
+                    })(),
                     location.href.includes('hotels') &&
                         (function() {
                             const e = document.querySelector('.minRange'),
