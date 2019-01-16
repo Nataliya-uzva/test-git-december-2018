@@ -1,0 +1,32 @@
+body {
+    font-family: "PT Sans", Arial, sans-serif;
+		font-weight: 400;
+		height: 100%;
+}
+
+
+html {
+    height: 100%;
+}
+.wrapper {
+    max-width: $desktop-width;
+    margin: 0 auto;
+    box-shadow: 0 0 5px 0 #34495e;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+		// border: 1px solid red;
+		
+}
+
+main {
+	flex-grow: 10;
+}
+.footer {
+	flex-grow: 1;
+    // border: 1px solid green;
+}
+.header {
+	flex-grow: 1;
+	// border: 1px solid blue;
+}

@@ -1,0 +1,138 @@
+body {
+    font-family: "Roboto";
+}
+td,
+th {
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+th {
+    font-size: 16px;
+}
+
+.calendar {
+    width: calc(45px * 7);
+    height: 435px;
+    background: #efefef;
+    text-align: center;
+    border-radius: 2px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    color: #696969;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: absolute;
+    top: 225px;
+    left: calc(50% - ((45px * 7) / 2));
+    z-index: 500;
+    visibility: hidden;
+}
+.calendar-shadow-mask {
+    left: calc((100% / 2) - (568px / 2));
+    width: 568px;
+    height: 481px;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 204px;
+    z-index: 450;
+}
+.calendar-visible {
+    visibility: visible;
+}
+
+.arrowMonthLeft,
+.arrowMonthRight,
+.calendarMonth,
+.calendarMonthName,
+.confirmChoiseButton,
+.closedCalendarButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.arrowMonthLeft,
+.arrowMonthRight,
+.confirmChoiseButton,
+.closedCalendarButton {
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-size: 30px;
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+    &:active {
+        transform: scale(1.1);
+        color: #f8f8f8;
+        transition: all 0.1s;
+    }
+}
+.arrowMonthLeft {
+    padding-right: 5px;
+}
+.arrowMonthRight {
+    padding-left: 5px;
+}
+
+.calendarMonth {
+    height: 50px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    font-size: 24px;
+    background: #f8f8f8;
+}
+
+td:hover {
+    cursor: pointer;
+    border: 1px solid lightgray;
+}
+.markDay {
+    color: orange;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.incoming-day {
+    color: green;
+    font-weight: 700;
+    font-style: italic;
+    border: 1px solid aquamarine;
+    background-color: aquamarine;
+}
+.in-day {
+    @extend .incoming-day;
+    border-radius: 10px 0 0 10px;
+}
+.out-day {
+    @extend .incoming-day;
+    border-radius: 0 10px 10px 0;
+}
+
+.calendarButtons {
+    height: 50px;
+    background: #f8f8f8;
+    margin-top: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.confirmChoiseButton,
+.closedCalendarButton {
+    width: 120px;
+    height: 90%;
+    border: 0;
+    outline: none;
+    background: #f8f8f8;
+    color: #696969;
+    font-size: 25px;
+}

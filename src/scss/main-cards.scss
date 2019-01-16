@@ -1,0 +1,106 @@
+.main__cards-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 400;
+}
+.small-card {
+    flex-basis: $tablet-width / 3;
+    flex-grow: 1;
+}
+.big-card {
+    flex-basis: $tablet-width / 3 * 2;
+    flex-grow: 2;
+}
+.top-card {
+    height: 586px;
+}
+.bottom-card {
+    height: 513px;
+}
+.header-card {
+    height: 256px;
+    color: $white;
+    background-color: $card-background-header;
+}
+.main__cards {
+    box-sizing: border-box;
+    color: $black;
+}
+.card__content {
+    padding-top: 47px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.card__content__title {
+    font-weight: 700;
+    font-size: 21px;
+    margin-bottom: 27px;
+}
+.card__content__number {
+    font-size: 13px;
+    margin-bottom: 26px;
+}
+.card__content__description {
+    font-size: 13px;
+    line-height: 21px;
+    letter-spacing: 0.8px;
+}
+.bottom-card-main {
+    background-color: $card-background-main;
+    height: calc(513px - 256px);
+}
+.big-card__img {
+    height: 256px;
+}
+.big-card__body-inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+// .content__card-bottom__main {
+//     padding-top: 47px;
+//     color: $black;
+//     background-color: $card-background-main;
+//     height: calc(513px - 256px);
+// }
+// .content__card-top__main {
+//     background-color: $white;
+//     padding-top: 58px;
+//     color: $black;
+//     // height: 100%;
+// }
+
+.card__content__icon {
+    width: 76px;
+    height: 76px;
+    margin: auto;
+    margin-bottom: 26px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.house-icon {
+    background-image: url("../img/house-icon.png");
+}
+.food-icon {
+    background-image: url("../img/food-icon.png");
+}
+.present-icon {
+    background-image: url("../img/present-icon.png");
+}
+.img-hotel {
+    background-image: url("../img/hotel-1200.png");
+    background-size: auto;
+}
+.img-canyon {
+    background-image: url("../img/canyon-1200.png");
+}
+// .content__big-card__main__inner {
+//     display: flex;
+//     flex-direction: row;
+//     // height: 100%;
+// }

@@ -1,0 +1,27 @@
+$mobile-width: 320px;
+$tablet-width: 768px;
+$mobile-width-only: $tablet-width - 1;
+$desktop-width: 1200px;
+$tablet-width-only: $desktop-width - 1;
+
+$retina-dpi: 144dpi;
+$retina-dppx: 1.5dppx;
+
+$container-padding-mobile: 20px;
+$container-padding-tablet: 60px;
+$container-padding-desktop: 120px;
+
+$main-font: "PT Sans", "Arial", sans-serif;
+
+$font-size-small: 14px;
+$font-size-normal: 18px;
+$font-size-big: 21px;
+$font-size-giant: 30px;
+
+$line-height-small: 21px;
+$line-height-medium: 24px;
+$line-height-big: 26px;
+$line-height-giant: 38px;
+
+$fast-transition: 110ms ease-in-out;
+$slow-transition: 180ms ease-in-out;

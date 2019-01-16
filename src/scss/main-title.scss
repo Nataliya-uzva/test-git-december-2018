@@ -1,0 +1,31 @@
+.main__banner__background {
+    height: 508px;
+    width: 100%;
+		background-image:
+		 url("../img/SEDONA.png"),
+		 url("../img/background-title.png"),
+		 url("../img/background-bottom.png"), 
+		 url("../img/background-img.jpg");
+    background-position: center 213px, center 75px, center 451px, bottom;
+    background-repeat: no-repeat;
+}
+
+.main__bunner__description {
+    height: 215px;
+    color: $text-black;
+    padding-top: 59px;
+    text-align: center;
+		text-transform: uppercase;
+		background-color: $white;
+}
+.main__banner_slogan {
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 26px;
+    margin-bottom: 34px;
+    letter-spacing: 0.2px;
+}
+.main__banner__text {
+    font-size: 13px;
+    letter-spacing: 0.6px;
+}

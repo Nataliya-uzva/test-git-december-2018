@@ -1,0 +1,105 @@
+<section class="main-hotel-selection">
+    <div class="main-hotel-selection__inner">
+        <ul class="selection__infrostructure">
+            <li class="selection-title">ИНФРАСТРУКТУРА:</li>
+            <l1 class="selection-item">
+                <input
+                    class="selection-pool"
+                    type="checkbox"
+                    id="selection-pool"
+                />
+                <label class="label__selection-pool" for="selection-pool">
+                    <span></span>бассейн</label
+                >
+            </l1>
+            <l1 class="selection-item">
+                <input
+                    class="selection-parking"
+                    type="checkbox"
+                    id="selection-parking"
+                />
+                <label class="label__selection-parking" for="selection-parking">
+                    <span></span>парковка</label
+                >
+            </l1>
+            <l1 class="selection-item">
+                <input
+                    class="selection-wifi"
+                    type="checkbox"
+                    id="selection-wifi"
+                />
+                <label class="label__selection-wifi" for="selection-wifi">
+                    <span></span>wi-fi</label
+                >
+            </l1>
+        </ul>
+        <ul class="selection__type-housing">
+            <li class="selection-title">ТИП ЖИЛЬЯ:</li>
+            <l1 class="selection-item">
+                <input
+                    class="selection-hotel"
+                    type="checkbox"
+                    id="selection-hotel"
+                />
+                <label class="label__selection-hotel" for="selection-hotel">
+                    <span></span>гостиница</label
+                >
+            </l1>
+            <l1 class="selection-item">
+                <input
+                    class="selection-motel"
+                    type="checkbox"
+                    id="selection-motel"
+                />
+                <label class="label__selection-motel" for="selection-motel">
+                    <span></span>мотель</label
+                >
+            </l1>
+            <l1 class="selection-item">
+                <input
+                    class="selection-apartments"
+                    type="checkbox"
+                    id="selection-apartments"
+                />
+                <label
+                    class="label__selection-apartments"
+                    for="selection-apartments"
+                >
+                    <span></span>апартаменты</label
+                >
+            </l1>
+        </ul>
+        <div class="selection__cost">
+            <div class="selection__cost__inner">
+                <h3 class="selection__cost__title">СТОИМОСТЬ В СУТКИ (Р):</h3>
+                <div class="selection__cost__show-cost">
+                    <div class="selection__cost__show-cost__wrapper">
+                        <div class="min-cost">OT 0</div>
+                        <div class="max-cost">ДО 10000</div>
+                    </div>
+                    <form action="" class="range-form">
+                        <input
+                            type="range"
+                            min="0"
+                            max="10000"
+                            step="1"
+                            value="0"
+                            class="minRange"
+                        />
+                        <input
+                            type="range"
+                            min="0"
+                            max="10000"
+                            step="1"
+                            value="10000"
+                            class="maxRange"
+                        />
+                        <button class="range-form__button" type="submit">
+                            ПОКАЗАТЬ
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

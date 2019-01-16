@@ -1,0 +1,45 @@
+.main__travel__search {
+    position: relative;
+    z-index: 300;
+}
+.main__travel__search__inner {
+    height: 290px;
+    width: 100%;
+    color: $text-black;
+    text-align: center;
+    padding-top: 50px;
+    z-index: 200;
+    position: relative;
+    background-color: $white;
+    z-index: 300;
+}
+.travel__search__header {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 27px;
+}
+.travel__search__description {
+    font-size: 14px;
+    line-height: 25px;
+    margin-bottom: 47px;
+}
+.travel__search__button {
+    max-width: 568px;
+    height: 86px;
+    font-size: 21px;
+    font-weight: 700;
+    color: $white;
+    background-color: $brown--lightest;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+        cursor: pointer;
+        background-color: $brown--lighter;
+    }
+    &:active {
+        background-color: $brown--light;
+        color: #818181;
+    }
+}

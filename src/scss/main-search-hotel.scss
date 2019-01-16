@@ -1,0 +1,175 @@
+.travel__search-hotel {
+    width: 568px;
+    height: 100px;
+    margin: auto;
+    position: absolute;
+    left: calc((100% / 2) - (568px / 2));
+    top: 50px;
+    color: $black;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    transform: scale(0.5);
+    transition-property: transform, height;
+    transition-duration: 0.3s;
+    background-color: $white;
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+    top: -107px;
+    padding: 54px;
+    height: 396px;
+    transform: translateY(396px) scale(1);
+    transition-property: transform, height, padding, visibility;
+    transition-duration: 0.3s;
+    z-index: 100;
+}
+.search-hotel__date-in,
+.search-hotel__date-out,
+.search-hotel__humans,
+.search-hotel__humans__adult,
+.search-hotel__humans__children {
+    height: 38px;
+    display: flex;
+}
+.search-hotel__date-in {
+    margin-bottom: 28px;
+}
+.search-hotel__date-out {
+    margin-bottom: 30px;
+}
+
+.date-in__label,
+.date-out__label {
+    width: 150px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    &:hover {
+        background-color: $grey;
+    }
+}
+.date-in__input,
+.date-out__input {
+    outline: 0;
+    border: 0;
+    background-color: $grey--lighter;
+    padding-left: 10px;
+    font-family: "PT Sans", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    flex-grow: 3;
+}
+.search-hotel__input-wrapper {
+    border: 2px solid $grey--lighter;
+    background-color: $grey--lighter;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    &:hover {
+        cursor: pointer;
+        background-color: $grey;
+        border: 2px solid $grey;
+    }
+    &:hover input {
+        background-color: $grey;
+    }
+}
+.search-hotel__button {
+    width: 100%;
+    height: 58px;
+    border: 0px;
+    outline: 0;
+    background-color: $blue;
+    font-weight: 700;
+    font-size: 20px;
+    color: $white;
+    display: block;
+    &:hover {
+        cursor: pointer;
+        background-color: $blue--darker;
+    }
+    &:active {
+        color: $blue-lighter;
+    }
+}
+
+.search-hotel__humans {
+    margin-bottom: 55px;
+}
+.svg-minus-icon,
+.svg-plus-icon,
+.calendar-date {
+    margin-right: 8px;
+    margin-top: 5px;
+    fill: #cacaca;
+    margin-left: 6px;
+    &:hover {
+        fill: black;
+    }
+    &:active {
+        fill: #81b3d2;
+    }
+}
+.search-hotel__humans__adult,
+.search-hotel__humans__children {
+    width: 50%;
+    height: 100%;
+}
+.search-hotel__humans__adult {
+    margin-right: 10px;
+}
+.adult-label,
+.children-label {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+.children-label {
+    justify-content: center;
+}
+.children-counter,
+.adult-counter {
+    display: flex;
+    width: 50%;
+}
+.children-quantity__input,
+.adult-quantity__input {
+    border: 0;
+    outline: 0;
+    font-family: "PT Sans", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    text-indent: 16px;
+}
+.adult-counter-minus,
+.adult-counter-plus,
+.children-counter-plus,
+.children-counter-minus,
+.children-quantity__input,
+.adult-quantity__input {
+    width: 38px;
+    background-color: $grey--lighter;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.adult-counter-minus,
+.adult-counter-plus,
+.children-counter-minus,
+.children-counter-plus {
+    box-sizing: border-box;
+    color: $grey--darkest;
+
+    &:hover {
+        color: $black;
+        cursor: pointer;
+    }
+    &:active {
+        color: $grey--darkest;
+    }
+}

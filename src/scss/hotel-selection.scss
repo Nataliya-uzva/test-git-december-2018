@@ -1,0 +1,146 @@
+.main-hotel-selection {
+    width: 100%;
+    min-height: 217px;
+
+    text-transform: uppercase;
+    color: $white;
+    background-image: url("../img/filter-background-min.jpg");
+    padding-top: 29px;
+}
+.main-hotel-selection__inner {
+    max-width: 1056px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.selection__infrostructure,
+.selection__type-housing,
+.selection__cost {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 150px;
+    flex-grow: 8;
+}
+.selection__cost {
+    flex-grow: 30;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.selection-title {
+    font-weight: 700;
+    margin-bottom: 26px;
+}
+.main-hotel-selection input[type="checkbox"] {
+    display: none;
+}
+label[for^="selection"] {
+    font-size: 14px;
+}
+input[type="checkbox"] + label span {
+    display: inline-block;
+    width: 31px;
+    height: 25px;
+    vertical-align: middle;
+    background: url("../img/checkbox-off.svg");
+    background-position: 1px center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin-right: 10px;
+}
+input[type="checkbox"]:checked + label span {
+    background: url("../img/checkbox-on.svg");
+    background-position: 1px center;
+    background-repeat: no-repeat;
+}
+.selection-item {
+    margin-bottom: 20px;
+}
+.selection__cost__inner {
+    max-width: 499px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.selection__cost__show-cost__wrapper {
+    width: 318px;
+    height: 36px;
+    border: 2px solid $white;
+    border-radius: 2px;
+    padding: 3px 0;
+    display: flex;
+    margin-bottom: 18px;
+}
+.max-cost,
+.min-cost {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.max-cost {
+    border-left: 1px solid $white;
+}
+.min-cost {
+    border-right: 1px solid $white;
+}
+.selection__cost__title {
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.minRange,
+.maxRange {
+    box-sizing: border-box;
+    appearance: none;
+    width: 100%;
+    outline: none;
+    background-image: linear-gradient(to right, white);
+    height: 2px;
+    pointer-events: none;
+    position: absolute;
+    &::-webkit-slider-thumb {
+        height: 20px;
+        width: 20px;
+        border-radius: 100%;
+        cursor: pointer;
+        appearance: none;
+        pointer-events: all;
+        border: 8px solid $white;
+        box-shadow: 0 2px 1px 0 rgba(0, 1, 1, 0.2);
+        background-color: #ababab;
+        &:hover {
+            background-color: black;
+        }
+    }
+}
+.maxRange {
+    background: none;
+    box-shadow: none;
+}
+.range-form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.range-form__button {
+    margin-top: 36px;
+    border: 0px;
+    outline: 0;
+    background-color: transparent;
+    width: 136px;
+    height: 36px;
+    border: 2px solid $white;
+    border-radius: 2px;
+    align-self: center;
+    color: $white;
+    font-family: "PT Sans";
+    &:hover {
+        cursor: pointer;
+        background-color: $white;
+        color: $black;
+    }
+}

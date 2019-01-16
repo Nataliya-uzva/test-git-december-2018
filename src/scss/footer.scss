@@ -1,0 +1,54 @@
+.footer {
+    width: 100%;
+    height: 120px;
+    flex-basis: 120px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    background-color: transparent;
+    bottom: 0px;
+    position: absolute;
+}
+.footer__social-icon {
+    display: flex;
+}
+.social-icon {
+    width: 46px;
+    height: 48px;
+}
+.social-link {
+    display: flex;
+    width: 47px;
+    height: 48px;
+    color: $white;
+    font-size: 20px;
+    background-color: $blue;
+    background-position: center;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+    margin-right: 6px;
+    &:hover {
+        background-color: $blue--darker;
+    }
+    &:active {
+        color: $blue-lighter;
+    }
+}
+.footer__hashtag {
+    width: 150px;
+    color: $black;
+    font-weight: 700;
+		font-size: 22px;
+		
+}
+.academy-logo {
+    width: 150px;
+    height: 100px;
+    background-image: url("../img/ac.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center right;
+   
+}
