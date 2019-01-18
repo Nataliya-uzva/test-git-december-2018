@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    "use strict";
+
+    // заполнить двумерный массив рандомными числами  
+    function randomInteger(min, max) {
+    var rand = min + Math.random() * (max + 1 - min);
+    rand = Math.floor(rand);
+    return rand;
+    }
+
+    var arr = [...Array(6)].map(e => Array(6).fill().map((n,i)=>randomInteger(0, 100)));
+
+    console.table(arr);   
+
+    //заполнить двумерный массив числами по порядку
+     var counter = 0;
+
+    var arr = [...Array(6)].map(e => Array(6).fill().map((n,i)=>counter++));
+
+    console.table(arr);
+
+       //создать массив обхода двумерного массива по часовой стрелке  
+
+    var counter = 0;
+    var arr = [...Array(6)].map(e => Array(6).fill().map((n,i)=>counter++));
+    var len = (arr.length - 1)
+    console.table(arr);
+
+    var resultArray = [];
+
+    arr.forEach(function(el, i, arr){
+        el.forEach(function (el2d, j) {
+            if ((i === 0) || (j === len)){
+                resultArray.push(arr[i][j]);
+            }
+        });
+        return resultArray;
+    });
+
+    arr.reverse().forEach(function(el, i, arr){
+        el.reverse().forEach(function (el2d, j) {
+            if (((i === 0) && (j > 0)) || ((j === len) && (i > 0) && (i < len))){
+                resultArray.push(arr[i][j]);
+            }
+
+        });
+        return resultArray;
+    });
+    console.log(resultArray);
+
+    //Создать массив 10х10 и заполнить его произвольными числами от 0 до 100.
+    //получить результирующий массив из значений двуверного массива находящихся по переметру при обходе против часовой стрелки.
+
+    function randomInteger(min, max) {
+        var rand = min + Math.random() * (max + 1 - min);
+        rand = Math.floor(rand);
+        return rand;
+    }
+
+    var arr = [...Array(6)].map(e => Array(6).fill().map((n,i)=>randomInteger(0, 100)));
+
+    var len = (arr.length - 1)
+    console.table(arr);
+
+    var resultArray = [];
+
+    arr.forEach(function(el, i, arr){
+        el.forEach(function (el2d, j) {
+            if ((i === len) || (j === 0)){
+                resultArray.push(arr[i][j]);
+            }
+        });
+        return resultArray;
+    });
+
+    arr.reverse().forEach(function(el, i, arr){
+        el.reverse().forEach(function (el2d, j) {
+            if (((j === 0) && (i > 0)) || ((i === len) && (j < len) && (i > 0))){
+                resultArray.push(arr[i][j]);
+            }
+
+        });
+        return resultArray;
+    });
+    console.log(resultArray);
+
+</script>
+
+</body>
+</html>
