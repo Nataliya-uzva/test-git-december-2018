@@ -1,0 +1,21 @@
+.list {
+    list-style-type: none;
+    width: 200px;
+}
+
+li {
+    line-height: 24px;
+    border: 1px solid lightgrey;
+}
+
+.lime-color {
+    background-color: lime;
+}
+
+.color {
+    color: red;
+}
+
+div {
+    background-color: orange;
+}
