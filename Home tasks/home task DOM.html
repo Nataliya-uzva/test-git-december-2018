@@ -95,6 +95,69 @@
             </tbody>
         </table>
     </div>
+
+    <script>
+        // // #1
+        //
+        // const table = document.querySelector('table.js-teachers');
+        // const arrDataAvailable = table.querySelectorAll('[data-available]');
+        //
+        // arrDataAvailable.forEach((elemTd) => {
+        //     elemTd.dataset.available === 'true'
+        //      ? elemTd.parentElement.classList.add('available')
+        //      : elemTd.parentElement.classList.add('unavailable');
+        // });
+
+        // // #2
+        //
+
+        function highlight() {
+            const table = document.querySelector('table.js-teachers');
+            const arrDataAvailable = table.querySelectorAll('tbody td:last-child');
+
+            arrDataAvailable.forEach((elemTd) => {
+
+                if (elemTd.dataset.available === 'true') {
+                    elemTd.parentElement.classList.add('available');
+                }
+
+                if (elemTd.dataset.available === 'false') {
+                    elemTd.parentElement.classList.add('unavailable')
+                }
+
+                if (!elemTd.dataset.available) {
+                    elemTd.parentElement.hidden = true;
+                }
+            });
+
+            // #3
+
+            const arrSex = table.querySelectorAll('tbody td:nth-child(3)');
+
+            arrSex.forEach((elemTd) => {
+
+                elemTd.textContent === 'm'
+                    ? elemTd.parentElement.classList.add('male')
+                    : elemTd.parentElement.classList.add('female');
+
+            });
+
+            // #4
+
+            const arrAge = table.querySelectorAll('tbody td:nth-child(2)');
+
+            arrAge.forEach((elemTd) => {
+
+                if (Number(elemTd.textContent) < 18) {
+                    elemTd.parentElement.style.textDecoration = 'line-through';
+                }
+
+            });
+        }
+
+        highlight();
+
+    </script>
     </body>
 
 </html>

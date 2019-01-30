@@ -55,7 +55,6 @@ function toggleClass() {
 }
 
 function renderList(users, elem) {
-    debugger;
     const userStr = users.reduce((currentValue, user) => {
         return currentValue + `
             <li>
@@ -112,6 +111,15 @@ setTimeout(() => {
     duck.classList.add('lime-color');
     console.log(document.querySelectorAll('.duck')[1]);
 }, 2000);
+
+
+const customDiv = document.createElement('div');
+
+customDiv.textContent = 'Hello first div!!!';
+
+document.querySelector('section').insertBefore(customDiv, document.querySelector('section ul'));
+
+
 
 
 
