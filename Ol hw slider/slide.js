@@ -8,14 +8,9 @@
 
     Slideshow.prototype = {
         init: function() {
-            this.wrapper = this.el.querySelector( ".slider-wrapper" );
             this.slides = this.el.querySelectorAll( ".slide" );
-            this.previous = this.el.querySelector( ".slider-previous" );
-            this.next = this.el.querySelector( ".slider-next" );
             this.index = 0;
-            this.total = this.slides.length;
             this.timer = null;
-
             this.action();
             this.stopStart();
         },
