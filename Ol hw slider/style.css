@@ -1,0 +1,42 @@
+.caption {
+    position: center;
+    text-align: center;
+    letter-spacing: .051em;
+    color: black;
+    font-family: "OFL Sorts Mill Goudy", "Noto Nastaliq Urdu", "My Noto Nastaliq Urdu", Georgia, serif;
+    font-size: 35px;
+}
+
+
+html,body {
+    margin: 0;
+    padding: 0;
+    background-color: mintcream;
+}
+.slider {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+
+}
+
+.slider-wrapper {
+    width: 100%;
+    height: 400px;
+    position: relative;
+}
+
+.slide {
+    float: left;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 3s linear;
+}
+
+.slider-wrapper > .slide:first-child {
+    opacity: 1;
+}
+
