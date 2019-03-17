@@ -2,73 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Phone catalogue</title>
+    <link rel="stylesheet"
+          href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+          crossorigin="anonymous">
     <link rel="stylesheet" href="app.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
-
-    <script src="js/helper.js" defer></script>
-    <script src="js/filter.js" defer></script>
-    <script src="js/sorter.js" defer></script>
-    <script src="js/phone-view.js" defer></script>
-    <script src="js/phones-catalogue.js" defer></script>
-    <script src="js/app.js" defer></script>
+    <script src="scripts/app.js" defer type="module"></script>
 </head>
 <body>
-<div data-component="page-phone-catalogue"
-     class="container-fluid">
-    <div class="row">
-        <div class="col-md-2">
-            <!--Sidebar content-->
-
-            <div data-component="filter">
-                <p>
-                    Search:
-                    <input data-element="filter">
-                </p>
-            </div>
-
-            <div data-component="sorter">
-                <p>
-                    Sort by:
-                    <select  data-element="sorter">
-                        <option value="name">Alphabetical</option>
-                        <option value="age">Newest</option>
-                    </select>
-                </p>
-            </div>
-        </div>
-        <div class="col-md-10">
-            <!--Body content-->
-            <div data-component="phones-catalogue"></div>
-
-            <div data-component="phone-view"></div>
-        </div>
-    </div>
-</div>
-
-<script type="text/template" data-template="phones-catalogue">
-
-    <ul class="phones">
-        <% phones.forEach((phone) => { %>
-        <li class="thumbnail" data-element="phoneId" data-id="<%=phone.id%>">
-            <a href="phones/<%=phone.id%>" data-element="phoneLink" class="thumb">
-                <img alt="<%-phone.name%>" src="<%=phone.imageUrl%>">
-            </a>
-            <a href="phones/<%=phone.id%>" data-element="phoneLink"><%-phone.name%></a>
-            <p><%-phone.snippet%></p>
-        </li>
-        <% }); %>
-    </ul>
-</script>
-
-<script type="text/template" data-template="phone-view">
-    <img class="phone" src="<%= imageUrl %>">
-
-    <h1><%- name %></h1>
-
-    <p><%- snippet %></p>
-</script>
+<div data-page-container></div>
 </body>
 </html>

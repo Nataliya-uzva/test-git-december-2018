@@ -2,6 +2,7 @@
 
 body {
   padding-top: 20px;
+  background-color: lightcyan;
 }
 
 
@@ -100,4 +101,9 @@ h1 {
 
 .js-hidden {
   display: none;
+}
+
+.custom-remove-button {
+  font-size: 8px;
+  margin: 6px;
 }

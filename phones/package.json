@@ -1,0 +1,20 @@
+{
+  "name": "source-it-phones-12-2018",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nataliya-uzva/test-git-december-2018.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nataliya-uzva/test-git-december-2018/issues"
+  },
+  "homepage": "https://github.com/Nataliya-uzva/test-git-december-2018/#readme",
+  "dependencies": {
+    "bootstrap": "3.3.7"
+  }
+}
